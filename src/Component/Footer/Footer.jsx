@@ -4,8 +4,8 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa6";
 const Footer = () => {
     return (
         <div>
-            <div className='flex text-white'>
-                <div className=' bg-[#1F2937] flex flex-col w-full text-center  p-16'>
+            <div className='flex flex-col md:flex-row text-white'>
+                <div className=' bg-[#1F2937] flex flex-col  w-full text-center  p-16'>
                     <h2 className=' text-3xl'>CONTACT US</h2>
                     <p className='text-center text-xl mt-6'>123 ABS Street, Uni 21, Bangladesh <br />
                         +88 123456789 <br />
