@@ -1,11 +1,14 @@
 import Banner from './Banner';
-import Swipper from './Swiper';
+import OnlineOrder from './OnlineOrder';
+import PopularMenu from './PopularMenu';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Swipper />
+            <OnlineOrder />
+            <PopularMenu/>
+
         </div>
     );
 };

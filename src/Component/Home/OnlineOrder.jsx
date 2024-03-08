@@ -19,9 +19,9 @@ import img5 from "../../assets/home/slide5.jpg"
 import SharedTitele from '../SharedComponent/SharedTitle';
 
 
-const Swipper = () => {
+const OnlineOrder = () => {
     return (
-        <div className='max-w-5xl mx-auto my-6'>
+        <div className='max-w-5xl mx-auto my-10'>
 
           <SharedTitele subHeading={'From 11:00am to 10:00pm'}
           heading={"ORDER ONLINE"} />
@@ -76,4 +76,4 @@ const Swipper = () => {
     );
 };
 
-export default Swipper;
+export default OnlineOrder;
