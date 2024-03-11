@@ -2,6 +2,7 @@ import Banner from './Banner';
 import FromMenu from './FromMenu';
 import OnlineOrder from './OnlineOrder';
 import PopularMenu from './PopularMenu';
+import Reviews from './TESTIMONIALS/Reviews';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <OnlineOrder />
             <PopularMenu/>
             <FromMenu/>
+            <Reviews/>
 
         </div>
     );
