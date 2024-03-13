@@ -54,7 +54,7 @@ const Reviews = () => {
                                 <StarRatings
                                     rating={data?.rating}
                                     starRatedColor="orange"
-                                    starDimension="40px"
+                                    starDimension="45px"
                                     starSpacing="15px"
                                 />
                                 <img className="w-20 mx-auto my-4" src={img} alt="" />
