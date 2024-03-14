@@ -5,7 +5,7 @@ import "./feature.css"
 
 const FromMenu = () => {
     return (
-        <div className="feature-item bg-fixed p-24 my-10">
+        <div className="feature-item  p-24 my-10">
             <SharedTitele subHeading={'Check it out'}
                 heading={"FROM OUR MENU"} />
 

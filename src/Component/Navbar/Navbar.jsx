@@ -5,7 +5,7 @@ const Navbar = () => {
     const navOption = < >
 
     <div className='flex flex-col lg:flex-row gap-2 font-bold text-lg'>
-    <ul cla>HOME</ul>
+    <ul >HOME</ul>
         <ul> CONTACT US </ul>
         <ul>DASHBOARD</ul>
         <ul>OUR MENU</ul>
