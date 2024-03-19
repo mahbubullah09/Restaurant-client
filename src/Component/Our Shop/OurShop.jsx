@@ -27,8 +27,8 @@ const OurShop = () => {
                 title={'OUR SHOP'}
                 subTitle={'Would you like to try a dish?'} />
 
-            <section className='max-w-5xl mx-auto'>
-                <ul className='flex gap-2 justify-center cursor-pointer my-6 font-semibold uppercase '>
+            <section className='max-w-5xl mx-auto '>
+                <ul className='flex gap-2 justify-center cursor-pointer my-6 font-semibold uppercase text-2xl '>
                     <li className={tabs === 1 ? "text-[#BB8506]  border-[#BB8506]    border-b-[3px] " : " "} onClick={() => handleTabs(1)}>Salad</li>
                     <li className={tabs === 2 ? "text-[#BB8506]  border-[#BB8506]    border-b-[3px]" : " "} onClick={() => handleTabs(2)}>pizza</li>
                     <li className={tabs === 3 ? "text-[#BB8506]  border-[#BB8506]    border-b-[3px]" : " "} onClick={() => handleTabs(3)}>soups</li>
@@ -38,13 +38,51 @@ const OurShop = () => {
             </section>
 
             {/* tab info section  */}
-            <section>
+            <section className='my-16'>
+                <div className={tabs ===1 ? "block" : "hidden"}>
                 <div className='grid grid-cols-3 gap-4'>
                     {
                         salad?.map((data,idx) => 
                             <FoodCard key={idx} data={data} />
                         )
                     }
+                </div>
+                </div>
+                <div className={tabs ===2 ? "block" : "hidden"}>
+                <div className='grid grid-cols-3 gap-4'>
+                    {
+                        pizza?.map((data,idx) => 
+                            <FoodCard key={idx} data={data} />
+                        )
+                    }
+                </div>
+                </div>
+                <div className={tabs ===3 ? "block" : "hidden"}>
+                <div className='grid grid-cols-3 gap-4'>
+                    {
+                        soup?.map((data,idx) => 
+                            <FoodCard key={idx} data={data} />
+                        )
+                    }
+                </div>
+                </div>
+                <div className={tabs ===4 ? "block" : "hidden"}>
+                <div className='grid grid-cols-3 gap-4'>
+                    {
+                        dessert?.map((data,idx) => 
+                            <FoodCard key={idx} data={data} />
+                        )
+                    }
+                </div>
+                </div>
+                <div className={tabs ===5 ? "block" : "hidden"}>
+                <div className='grid grid-cols-3 gap-4'>
+                    {
+                        drinks?.map((data,idx) => 
+                            <FoodCard key={idx} data={data} />
+                        )
+                    }
+                </div>
                 </div>
             </section>
 
