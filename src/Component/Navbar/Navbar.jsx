@@ -16,15 +16,15 @@ const Navbar = () => {
             </NavLink></ul>
 
             <ul>  <NavLink
-                to="/menu"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
-                }
-            > CONTACT US</NavLink> </ul>
+                > CONTACT US</NavLink> </ul>
 
             <ul><NavLink>
                 DASHBOARD</NavLink></ul>
-            <ul><NavLink>OUR MENU</NavLink></ul>
+            <ul><NavLink to="/menu"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+           >OUR MENU</NavLink></ul>
             <ul> <NavLink
                 to="/ourshop"
                 className={({ isActive, isPending }) =>

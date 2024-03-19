@@ -6,6 +6,7 @@ import SharedTitele from '../SharedComponent/SharedTitle';
 import MenuItem from '../SharedComponent/MenuItem';
 import othersMenuImg from '../../assets/home/chef-service.jpg'
 import SharedItemCover from '../SharedComponent/sharedItemCover';
+import { Link } from 'react-router-dom';
 
 
 const Menu = () => {
@@ -37,58 +38,94 @@ const Menu = () => {
                         offered.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
                 </section>
+                <div className='flex justify-center '>
+
+                    <Link to={'/ourshop'}>
+                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+
+                    </Link>
+                </div>
+
             </div>
             <div className='my-10'>
 
                 <SharedItemCover bimg={othersMenuImg}
                     title={'DESSERTS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
-              
+
                 <section className='grid grid-cols-2 my-20'>
                     {menu &&
                         dessert.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
                 </section>
+                <div className='flex justify-center '>
+
+                    <Link to={'/ourshop'}>
+                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+
+                    </Link>
+                </div>
             </div>
             <div className='my-10'>
 
                 <SharedItemCover bimg={othersMenuImg}
                     title={'PIZZA'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
-              
+
                 <section className='grid grid-cols-2 my-20'>
                     {menu &&
                         pizza.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
                 </section>
+                <div className='flex justify-center '>
+
+                    <Link to={'/ourshop'}>
+                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+
+                    </Link>
+                </div>
             </div>
-            
+
             <div className='my-10'>
 
                 <SharedItemCover bimg={othersMenuImg}
                     title={'SALADS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
-              
+
                 <section className='grid grid-cols-2 my-20'>
                     {menu &&
                         salad.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
                 </section>
+                <div className='flex justify-center '>
+
+                    <Link to={'/ourshop'}>
+                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+
+                    </Link>
+                </div>
             </div>
-            
+
             <div className='my-10'>
 
                 <SharedItemCover bimg={othersMenuImg}
                     title={'SOUPS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
-              
+
                 <section className='grid grid-cols-2 my-20'>
                     {menu &&
                         soup.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
                 </section>
+                <div className='flex justify-center '>
+
+                    <Link to={'/ourshop'}>
+                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+
+                    </Link>
+                </div>
             </div>
-            
+
 
 
         </div>
