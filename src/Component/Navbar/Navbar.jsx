@@ -25,7 +25,12 @@ const Navbar = () => {
             <ul><NavLink>
                 DASHBOARD</NavLink></ul>
             <ul><NavLink>OUR MENU</NavLink></ul>
-            <ul><NavLink>OUR SHOP</NavLink></ul>
+            <ul> <NavLink
+                to="/ourshop"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+            >OUR SHOP</NavLink></ul>
             <button className=' text-lg font-bold '> SING OUT</button>
 
         </div>
