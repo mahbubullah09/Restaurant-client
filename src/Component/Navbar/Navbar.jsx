@@ -1,18 +1,34 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
     const navOption = < >
 
-    <div className='flex flex-col lg:flex-row gap-2 font-bold text-lg'>
-    <ul >HOME</ul>
-        <ul> CONTACT US </ul>
-        <ul>DASHBOARD</ul>
-        <ul>OUR MENU</ul>
-        <ul>OUR SHOP</ul>
-        <button className=' text-lg font-bold '> SING OUT</button>
+        <div className='flex flex-col lg:flex-row gap-2 font-bold text-lg'>
+            <ul ><NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+            >
+                HOME
+            </NavLink></ul>
 
-    </div>
+            <ul>  <NavLink
+                to="/menu"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+            > CONTACT US</NavLink> </ul>
+
+            <ul><NavLink>
+                DASHBOARD</NavLink></ul>
+            <ul><NavLink>OUR MENU</NavLink></ul>
+            <ul><NavLink>OUR SHOP</NavLink></ul>
+            <button className=' text-lg font-bold '> SING OUT</button>
+
+        </div>
 
     </>
     return (
@@ -32,12 +48,12 @@ const Navbar = () => {
                         <h2 className=' font-extrabold text-3xl'>BISTRO BOSS</h2>
                         <h3 className='font-bold text-2xl'>Restaurant</h3>
                     </div>
-                   
+
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navOption}
-                       
+
                     </ul>
                 </div>
 
