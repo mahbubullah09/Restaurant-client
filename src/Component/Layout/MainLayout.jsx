@@ -1,16 +1,22 @@
 import React from 'react';
 import Home from '../Home/Home';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 
 const MainLayout = () => {
+
+    const location = useLocation()
+    console.log(location);
+
+    const loginPage = location.pathname.includes('login')
+    const sinupPage = location.pathname.includes('singup')
     return (
         <div className=' max-w-screen-xl mx-auto'>
 
-            <Navbar />
+          {loginPage ||   <Navbar />}
             <Outlet />
-            <Footer />
+           {loginPage ||  <Footer />}
 
 
         </div>

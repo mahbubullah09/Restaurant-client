@@ -6,6 +6,7 @@ import MainLayout from "./Component/Layout/MainLayout";
 import Home from "./Component/Home/Home";
 import Menu from "./Component/Menu/Menu";
 import OurShop from "./Component/Our Shop/OurShop";
+import Login from "./Component/Authentication/Login";
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/ourshop",
         element: <OurShop/>,
+      },
+      {
+        path: "/login",
+        element: <Login/>,
       },
     ],
   },

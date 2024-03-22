@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
             >OUR SHOP</NavLink></ul>
-            <button className=' text-lg font-bold '> SING OUT</button>
+           <Link to={'/login'}> <button className=' text-lg font-bold '> LOG IN</button></Link>
 
         </div>
 
