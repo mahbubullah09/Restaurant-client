@@ -33,7 +33,7 @@ const Login = () => {
                       </div>
                       <div className='flex flex-col my-8 w-3/4 mx-auto'>
                          <button className='bg-[#D1A054B2] py-2 text-white'>Sing in</button>
-                         <h3 className='text-[#D1A054] my-4'>New here? <Link to={'/singup'}><span className='font-bold'>Create a New Account</span></Link></h3>
+                         <h3 className='text-[#D1A054] my-4 text-center'>New here? <Link to={'/singup'}><span className='font-bold'>Create a New Account</span></Link></h3>
 
                       </div>
                      

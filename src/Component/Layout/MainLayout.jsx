@@ -14,9 +14,9 @@ const MainLayout = () => {
     return (
         <div className=' mx-auto'>
 
-          {loginPage ||   <Navbar />}
+          {loginPage || sinupPage ||   <Navbar />}
             <Outlet />
-           {loginPage ||  <Footer />}
+           {loginPage || sinupPage ||  <Footer />}
 
 
         </div>
