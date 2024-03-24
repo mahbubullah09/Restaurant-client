@@ -12,7 +12,7 @@ const MainLayout = () => {
     const loginPage = location.pathname.includes('login')
     const sinupPage = location.pathname.includes('singup')
     return (
-        <div className=' max-w-screen-xl mx-auto'>
+        <div className=' mx-auto'>
 
           {loginPage ||   <Navbar />}
             <Outlet />

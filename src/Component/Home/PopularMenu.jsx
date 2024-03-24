@@ -30,11 +30,11 @@ const PopularMenu = () => {
             </section>
             <div className='flex justify-center mt-8'>
 
-
                 <Link to={'/menu'}>
                     <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>View Full  Menu</button>
 
-                </Link>            </div>
+                </Link>
+            </div>
 
         </div>
     );
