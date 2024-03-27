@@ -1,11 +1,23 @@
 import { Link } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
+import AuthProvider, { AuthContex } from '../../provider/AuthProvider';
+import { Result } from 'postcss';
 
 const Registration = () => {
+  const {createUser} = AuthContex(AuthProvider)
 
     const handleRegistration = e =>{
-        e.preventDefault()
+        e.preventDefault();
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        console.log(name, email,password);
+
+        createUser(email, password)
+        .then(result => result.user)
     }
     return (
         <div style={{ backgroundImage: `url(${bg})` }} className='min-h-[100vh] py-12 lg:py-28'>
