@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
+import { useContext } from 'react';
+import { AuthContex } from '../../provider/AuthProvider';
 
 const Login = () => {
+
+  const {singin} = useContext(AuthContex)
 
   const  handleLogin = e => {
     e.preventDefault();
@@ -11,6 +15,8 @@ const Login = () => {
     const password = e.target.password.value;
 
     console.log(email, password);
+    singin(email, password)
+    .then(result => result.user)
 
 
   }
