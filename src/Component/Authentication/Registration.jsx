@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 
 
 import { useContext } from 'react';
 import { AuthContex } from '../../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Registration = () => {
-  const {createUser} = useContext(AuthContex)
+  const {createUser, updateUserProfile} = useContext(AuthContex)
+  const navigate = useNavigate();
 
     const handleRegistration = e =>{
         e.preventDefault();
@@ -15,13 +17,27 @@ const Registration = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const photo = e.target.photo.value;
 
         console.log(name, email,password);
 
         createUser(email, password)
         .then(result => {
           result.user
-        console.log(result.user)})
+        console.log(result.user)
+        updateUserProfile(name, photo)
+        .then(()=>{
+
+          console.log("update info");
+
+          toast.success("Singup successfully")
+          navigate('/')
+
+          
+        })
+        .catch(err =>console.log(err))
+      
+      })
     }
     return (
         <div style={{ backgroundImage: `url(${bg})` }} className='min-h-[100vh] py-12 lg:py-28'>
@@ -40,6 +56,10 @@ const Registration = () => {
                   <div className='flex flex-col my-8 w-3/4 mx-auto'>
                     <label className='text-xl font-semibold my-2'>Name</label>
                     <input placeholder='Enter your Name' type="text" name="name" className='p-2  ' id="" />
+                  </div>
+                  <div className='flex flex-col my-8 w-3/4 mx-auto'>
+                    <label className='text-xl font-semibold my-2'>Photo URL</label>
+                    <input placeholder='Enter your Name' type="text" name="photo" className='p-2  ' id="" />
                   </div>
                   <div className='flex flex-col my-8 w-3/4 mx-auto'>
                     <label className='text-xl font-semibold my-2'>Email</label>
