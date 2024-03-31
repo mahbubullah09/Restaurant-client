@@ -57,14 +57,14 @@ const Login = () => {
             <div className='flex flex-col my-8 w-3/4 mx-auto'>
               <label className='text-xl font-semibold my-2'>Password</label>
 
-             <div className=' relative'>
-             <input placeholder='Enter your Password' type= { click? "text" : "password"} name="password" className='p-2 border w-full   ' id="" />
-        {!click?
-             <FaEyeSlash onClick={()=> setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />
-            :
-            <FaEye onClick={()=> setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />}
+              <div className=' relative'>
+                <input placeholder='Enter your Password' type={click ? "text" : "password"} name="password" className='p-2 border w-full   ' id="" />
+                {!click ?
+                  <FaEyeSlash onClick={() => setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />
+                  :
+                  <FaEye onClick={() => setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />}
 
-             </div>
+              </div>
             </div>
             <div className='flex flex-col my-8 w-3/4 mx-auto'>
               <button className='bg-[#D1A054B2] py-2 text-white'>Sing in</button>
@@ -74,7 +74,7 @@ const Login = () => {
 
 
           </form>
-         
+
         </div>
 
 

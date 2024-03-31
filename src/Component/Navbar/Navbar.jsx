@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
+import { FaCartPlus } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -17,7 +18,7 @@ const Navbar = () => {
 
     const navOption = < >
 
-        <div className='flex flex-col lg:flex-row gap-2 font-bold text-lg'>
+        <div className='flex flex-col lg:flex-row gap-2 font-bold '>
             <ul ><NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
@@ -36,18 +37,25 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
-            >OUR MENU</NavLink></ul>
+            > MENU</NavLink></ul>
             <ul> <NavLink
                 to="/ourshop"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
-            >OUR SHOP</NavLink></ul>
+            > SHOP</NavLink></ul>
+            <ul> <NavLink
+                to="/cart"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+            >
+                <button className=' flex items-center relative text-xl '><FaCartPlus /> <p className='relative -top-0 -right-0 lg:absolute lg:-top-4 lg:-right-3 bg-orange-500 text-sm px-2 rounded-full'>0</p> </button></NavLink></ul>
             <>
                 {
-                    !user ? <Link to={'/login'}> <button className=' text-lg font-bold '> LOG IN</button></Link>
+                    !user ? <Link to={'/login'}> <button className='  font-bold '> LOG IN</button></Link>
                         :
-                        <button onClick={handleLogout} className=' text-lg font-bold '> LOG OUT</button>
+                        <button onClick={handleLogout} className='  font-bold '> LOG OUT</button>
                 }
 
             </>
@@ -63,14 +71,14 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[50] p-2 shadow bg-base-100 rounded-box w-52">
                             {navOption}
                         </ul>
                     </div>
 
                     <div className='flex flex-col  text-white'>
-                        <h2 className=' font-extrabold text-3xl'>BISTRO BOSS</h2>
-                        <h3 className='font-bold text-2xl'>Restaurant</h3>
+                        <h2 className=' font-extrabold text-2xl'>BISTRO BOSS</h2>
+                        <h3 className='font-bold text-xl'>Restaurant</h3>
                     </div>
 
                 </div>
