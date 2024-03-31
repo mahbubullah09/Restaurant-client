@@ -11,6 +11,7 @@ import Registration from "./Component/Authentication/Registration";
 import AuthProvider from "./provider/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Cart from "./Component/Cart/Cart";
 
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/singup",
         element: <Registration />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
