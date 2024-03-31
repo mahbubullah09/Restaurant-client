@@ -12,6 +12,7 @@ import AuthProvider from "./provider/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Cart from "./Component/Cart/Cart";
+import UserDash from "./Component/Layout/userDash";
 
 
 
@@ -49,6 +50,17 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: 'dashboard',
+    element: <UserDash/>,
+    children: [
+
+      {
+        path: 'cart',
+        element: <Cart/>
+      }
+    ]
+  }
 ]);
 
 const queryClient = new QueryClient()

@@ -52,7 +52,7 @@ const Navbar = () => {
                 }
             > SHOP</NavLink></ul>
             <ul> <NavLink
-                to="/cart"
+                to="/dashboard/cart"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
