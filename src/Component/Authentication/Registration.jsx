@@ -7,8 +7,10 @@ import { useContext, useState } from 'react';
 import { AuthContex } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Registration = () => {
+  const axiosPublic = useAxiosPublic()
   const {createUser, updateUserProfile} = useContext(AuthContex)
   const navigate = useNavigate();
   const [click, setClick] = useState(false)
@@ -29,10 +31,21 @@ const Registration = () => {
         updateUserProfile(name, photo)
         .then(()=>{
 
-          console.log("update info");
+          const userInfo = {
+            name: name,
+            email: email
+          }
+          axiosPublic.post('/users', userInfo)
+          .then(res=>{
+            console.log("res");
+          
+          if(res.data.insertedId){
+            toast.success("Singup successfully")
+            navigate('/')
+          }
+          })
 
-          toast.success("Singup successfully")
-          navigate('/')
+         
 
           
         })
