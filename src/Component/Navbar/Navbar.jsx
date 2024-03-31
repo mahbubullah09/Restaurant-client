@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContex } from '../../provider/AuthProvider';
 
 const Navbar = () => {
+
+
+
+    const { user, singout } = useContext(AuthContex)
+
+    const handleLogout = () => {
+        singout()
+
+    }
+
+
 
     const navOption = < >
 
@@ -16,7 +28,7 @@ const Navbar = () => {
             </NavLink></ul>
 
             <ul>  <NavLink
-                > CONTACT US</NavLink> </ul>
+            > CONTACT US</NavLink> </ul>
 
             <ul><NavLink>
                 DASHBOARD</NavLink></ul>
@@ -24,14 +36,21 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
-           >OUR MENU</NavLink></ul>
+            >OUR MENU</NavLink></ul>
             <ul> <NavLink
                 to="/ourshop"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
             >OUR SHOP</NavLink></ul>
-           <Link to={'/login'}> <button className=' text-lg font-bold '> LOG IN</button></Link>
+            <>
+                {
+                    !user ? <Link to={'/login'}> <button className=' text-lg font-bold '> LOG IN</button></Link>
+                        :
+                        <button onClick={handleLogout} className=' text-lg font-bold '> LOG OUT</button>
+                }
+
+            </>
 
         </div>
 

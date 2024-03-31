@@ -1,12 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 import { useContext } from 'react';
 import { AuthContex } from '../../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
   const {singin} = useContext(AuthContex)
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  console.log(location);
 
   const  handleLogin = e => {
     e.preventDefault();
@@ -16,7 +24,13 @@ const Login = () => {
 
     console.log(email, password);
     singin(email, password)
-    .then(result => result.user)
+    .then(result => {
+      result.user
+    console.log(result.user)
+    toast.success("Login Successfully")
+
+    navigate(from , {replace: true})
+    })
 
 
   }

@@ -9,6 +9,7 @@ import OurShop from "./Component/Our Shop/OurShop";
 import Login from "./Component/Authentication/Login";
 import Registration from "./Component/Authentication/Registration";
 import AuthProvider from "./provider/AuthProvider";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/ourshop",
-        element: <OurShop />,
+        element: <PrivateRoute>
+          <OurShop />
+        </PrivateRoute>,
       },
       {
         path: "/login",
