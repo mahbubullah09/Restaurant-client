@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Cart from "./Component/Cart/Cart";
 import UserDash from "./Component/Layout/userDash";
+import MangeUsers from "./Component/AdminDash/Users/MangeUsers";
 
 
 
@@ -58,6 +59,12 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart/>
+      },
+
+      //adminRoute
+      {
+        path: 'manegeusers',
+        element: <MangeUsers/>
       }
     ]
   }

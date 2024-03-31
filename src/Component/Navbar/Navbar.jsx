@@ -38,7 +38,11 @@ const Navbar = () => {
             <ul>  <NavLink
             > CONTACT US</NavLink> </ul>
 
-            <ul><NavLink>
+            <ul><NavLink to="/dashboard"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+                }
+            >
                 DASHBOARD</NavLink></ul>
             <ul><NavLink to="/menu"
                 className={({ isActive, isPending }) =>
