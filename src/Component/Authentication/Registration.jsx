@@ -3,14 +3,15 @@ import bg from '../../assets/others/authentication.png'
 import img from '../../assets/others/authentication2.png'
 
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContex } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Registration = () => {
   const {createUser, updateUserProfile} = useContext(AuthContex)
   const navigate = useNavigate();
-
+  const [click, setClick] = useState(false)
     const handleRegistration = e =>{
         e.preventDefault();
 
@@ -67,7 +68,14 @@ const Registration = () => {
                   </div>
                   <div className='flex flex-col my-8 w-3/4 mx-auto'>
                     <label className='text-xl font-semibold my-2'>Password</label>
-                    <input placeholder='Enter your Password' type="text" name="password" className='p-2  ' id="" />
+                    <div className=' relative'>
+                <input placeholder='Enter your Password' type={click ? "text" : "password"} name="password" className='p-2 border w-full   ' id="" />
+                {!click ?
+                  <FaEyeSlash onClick={() => setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />
+                  :
+                  <FaEye onClick={() => setClick(!click)} className='absolute right-2 top-3 cursor-pointer' />}
+
+              </div>
                   </div>
                   <div className='flex flex-col my-8 w-3/4 mx-auto'>
                      <button className='bg-[#D1A054B2] py-2 text-white'>Sing in</button>
