@@ -8,6 +8,7 @@ import { AuthContex } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import SocialLogin from './SocialLogin';
 
 const Registration = () => {
   const axiosPublic = useAxiosPublic()
@@ -98,6 +99,8 @@ const Registration = () => {
                  
 
                 </form>
+
+                <SocialLogin/>
             </div>
             
 
