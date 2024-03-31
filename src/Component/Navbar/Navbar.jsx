@@ -2,11 +2,18 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { FaCartPlus } from "react-icons/fa";
+import useCart from '../../hooks/useCart';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQueries } from '@tanstack/react-query';
+import axios from 'axios';
 
 const Navbar = () => {
 
+    const [cart] = useCart()
 
 
+
+    
     const { user, singout } = useContext(AuthContex)
 
     const handleLogout = () => {
@@ -50,7 +57,7 @@ const Navbar = () => {
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
                 }
             >
-                <button className=' flex items-center relative text-xl '><FaCartPlus /> <p className='relative -top-0 -right-0 lg:absolute lg:-top-4 lg:-right-3 bg-orange-500 text-sm px-2 rounded-full'>0</p> </button></NavLink></ul>
+                <button className=' flex items-center relative text-xl '><FaCartPlus /> <p className='relative -top-0 -right-0 lg:absolute lg:-top-4 lg:-right-3 bg-orange-500 text-sm px-2 rounded-full'>{cart?.length}</p> </button></NavLink></ul>
             <>
                 {
                     !user ? <Link to={'/login'}> <button className='  font-bold '> LOG IN</button></Link>
