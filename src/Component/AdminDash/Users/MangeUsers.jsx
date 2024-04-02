@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import { MdDelete } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
 
 const MangeUsers = () => {
 
@@ -18,6 +19,34 @@ const MangeUsers = () => {
        
 
     })
+
+    const handleAdmin =(id) =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to make this user, admin?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, make it!"
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                axiosSecure.patch(`/users/admin/${id}`)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                           toast.success("Asign as a admin")
+                            refetch()
+                        }
+                    })
+
+
+            }
+        });
+
+
+    }
     const handleDelete = (id) => {
 
         Swal.fire({
@@ -74,7 +103,7 @@ const MangeUsers = () => {
                                         <td>{data?.role?
                                         <h2> {data?.role}</h2>
                                         :
-                                        <h2>users</h2>}</td>
+                                      <button onClick={()=>handleAdmin(data?._id)} className='bg-[#D1A054] text-white text-2xl p-2 '>  <FaUsers /></button>}</td>
                                         <td><button onClick={() => handleDelete(data?._id)} className="px-2 py-2 bg-[#B91C1C] text-white text-2xl "><MdDelete /></button>
                                         </td>
                                     </tr>
