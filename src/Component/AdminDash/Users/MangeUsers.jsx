@@ -20,23 +20,23 @@ const MangeUsers = () => {
 
     })
 
-    const handleAdmin =(id) =>{
+    const handleAdmin =(user) =>{
         Swal.fire({
             title: "Are you sure?",
-            text: "You want to make this user, admin?",
+            text: `You want to assign ${user.name} as a admin?`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, make it!"
+            confirmButtonText: "Yes, Assign!"
         })
         .then((result) => {
             if (result.isConfirmed) {
-                console.log(id);
-                axiosSecure.patch(`/users/admin/${id}`)
+               
+                axiosSecure.patch(`/users/admin/${user._id}`)
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
-                           toast.success("Asign as a admin")
+                           toast.success(`${user.name} Asign as a admin`)
                             refetch()
                         }
                     })
@@ -47,11 +47,11 @@ const MangeUsers = () => {
 
 
     }
-    const handleDelete = (id) => {
+    const handleDelete = (user) => {
 
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            text: `You want to delete ${user.name} ?`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -59,11 +59,11 @@ const MangeUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(id);
-                axiosSecure.delete(`/users/${id}`)
+                
+                axiosSecure.delete(`/users/${user?._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                           toast.success("Delete user")
+                           toast.success(`Delete ${user.name}`)
                             refetch()
                         }
                     })
@@ -103,8 +103,8 @@ const MangeUsers = () => {
                                         <td>{data?.role?
                                         <h2> {data?.role}</h2>
                                         :
-                                      <button onClick={()=>handleAdmin(data?._id)} className='bg-[#D1A054] text-white text-2xl p-2 '>  <FaUsers /></button>}</td>
-                                        <td><button onClick={() => handleDelete(data?._id)} className="px-2 py-2 bg-[#B91C1C] text-white text-2xl "><MdDelete /></button>
+                                      <button onClick={()=>handleAdmin(data)} className='bg-[#D1A054] text-white text-2xl p-2 '>  <FaUsers /></button>}</td>
+                                        <td><button onClick={() => handleDelete(data)} className="px-2 py-2 bg-[#B91C1C] text-white text-2xl "><MdDelete /></button>
                                         </td>
                                     </tr>
                                 )
