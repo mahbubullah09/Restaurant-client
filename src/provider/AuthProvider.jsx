@@ -8,68 +8,64 @@ const googleProvider = new GoogleAuthProvider()
 export const AuthContex = createContext(null)
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const axiosPublic = useAxiosPublic()
 
-    useEffect(()=> {
-      const unsubscribe =  onAuthStateChanged(auth, currentUser=>{
-            setUser(currentUser)
-
-            if(currentUser){
-                //
-                const userInfo ={email: currentUser.email}
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            if (currentUser) {
+                // get token and store client
+                const userInfo = { email: currentUser.email };
                 axiosPublic.post('/jwt', userInfo)
-                .then(res=>{
-                    if(res.data.token){
-                        localStorage.setItem("access-token" , res.data.token)
-                    }
-                })
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                        }
+                    })
             }
-            else{
-                //remove
-
-
-                localStorage.removeItem('access-token')
+            else {
+                // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+                localStorage.removeItem('access-token');
             }
-            setLoading(false)
+            setLoading(false);
         });
-
-        return ()=>{
+        return () => {
             return unsubscribe();
         }
-    },[axiosPublic])
+    }, [axiosPublic])
 
-    const googleLogin = () =>{
+    const googleLogin = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
 
-    const createUser =(email, password) =>{
+    const createUser = (email, password) => {
         setLoading(true)
-        return createUserWithEmailAndPassword(auth, email,password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const singin = (email, password) =>{
+    const singin = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const singout = () =>{
+    const singout = () => {
         setLoading(true)
         return signOut(auth)
     }
 
-   const updateUserProfile = (name, image) =>{
-    return updateProfile(auth.currentUser, {
-        displayName: name, photoURL: image
-      })
-   }
+    const updateUserProfile = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: image
+        })
+    }
 
-    const authInfo ={
+    const authInfo = {
 
         user,
         loading,

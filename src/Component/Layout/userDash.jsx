@@ -11,7 +11,7 @@ import useAdmin from "../../hooks/useAdmin";
 
 
 const UserDash = () => {
-    const axiosSecure = useAxiosSecure()
+   
 
     const [isAdmin] = useAdmin()
 
