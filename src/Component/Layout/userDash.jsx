@@ -6,13 +6,14 @@ import { IoMdMail, IoMdMenu } from "react-icons/io";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { CiForkAndKnife } from "react-icons/ci";
 import { BsFillMenuButtonWideFill, BsFillPersonVcardFill } from "react-icons/bs";
+import useAdmin from "../../hooks/useAdmin";
 
 
 
 const UserDash = () => {
     const axiosSecure = useAxiosSecure()
 
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
 
     return (
         <div className="flex">
