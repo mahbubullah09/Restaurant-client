@@ -82,7 +82,7 @@ const UserDash = () => {
                         <>
                             <div className="space-y-2">
                                 <ul className="">
-                                    <li><NavLink to={'/dashboard/home'}
+                                    <li><NavLink to={'/dashboard/userhome'}
                                         className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "text-white" : ""
                                         }

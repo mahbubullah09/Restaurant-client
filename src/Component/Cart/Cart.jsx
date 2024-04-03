@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart, refetch] = useCart()
@@ -27,7 +28,7 @@ const Cart = () => {
                 axiosSecure.delete(`/carts/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                           toast.success("Delete from cart")
+                            toast.success("Delete from cart")
                             refetch()
                         }
                     })
@@ -43,7 +44,13 @@ const Cart = () => {
             <div className="flex justify-between">
                 <h3 className='font-semibold text-3xl'>Total Order: {cart?.length} </h3>
                 <h3 className='font-semibold text-3xl'>Total Price: ${totalPrice} </h3>
-                <button className='bg-[#D1A054] text-lg font-semibold px-4 py-2 rounded-xl text-white'>Pay</button>
+                {cart.length ?
+
+                    <Link to={'/dashboard/payment'}><button className='bg-[#D1A054] text-lg font-semibold px-4 py-2 rounded-xl text-white'>Pay</button>  </Link>
+                    :
+                    <button disabled className='bg-[#D1A054]  text-lg font-semibold px-4 py-2 rounded-xl text-white'>Pay</button>
+
+                }
             </div>
 
             <div>

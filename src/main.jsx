@@ -18,6 +18,9 @@ import AdminRoute from "./PrivateRoute/AdminRoute";
 import AddItem from "./Component/AdminDash/ManageItems/AddItem";
 import ManageItems from "./Component/AdminDash/ManageItems/MnageItems";
 import UpdateItem from "./Component/AdminDash/ManageItems/UpdateItem";
+import Payment from "./Component/userDash/Payment";
+import AdminHome from "./Component/AdminDash/AdminHome";
+import UserHome from "./Component/userDash/UserHome";
 
 
 
@@ -61,11 +64,23 @@ const router = createBrowserRouter([
     children: [
 
       {
+        path: 'userhome',
+        element: <UserHome/>
+      },
+      {
         path: 'cart',
         element: <Cart/>
       },
+      {
+        path: 'payment',
+        element: <Payment/>
+      },
 
       //adminRoute
+      {
+        path: 'adminhome',
+        element: <AdminRoute><AdminHome/></AdminRoute>
+      },
       {
         path: 'manegeusers',
         element: <AdminRoute><MangeUsers/></AdminRoute>

@@ -6,6 +6,7 @@ import useCart from '../../hooks/useCart';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQueries } from '@tanstack/react-query';
 import axios from 'axios';
+import useAdmin from '../../hooks/useAdmin';
 
 const Navbar = () => {
 
@@ -15,6 +16,7 @@ const Navbar = () => {
 
     
     const { user, singout } = useContext(AuthContex)
+    const [isAdmin] = useAdmin()
 
     const handleLogout = () => {
         singout()
@@ -38,12 +40,22 @@ const Navbar = () => {
             <ul>  <NavLink
             > CONTACT US</NavLink> </ul>
 
-            <ul><NavLink to="/dashboard"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
-                }
-            >
-                DASHBOARD</NavLink></ul>
+           {
+            isAdmin ?
+            <ul><NavLink to="/dashboard/adminhome"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+        >
+            DASHBOARD</NavLink></ul>
+            :
+            <ul><NavLink to="/dashboard/userhome"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+        >
+            DASHBOARD</NavLink></ul>
+           }
             <ul><NavLink to="/menu"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
