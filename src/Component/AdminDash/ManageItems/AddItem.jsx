@@ -2,10 +2,49 @@ import React from 'react';
 import SharedTitele from '../../SharedComponent/SharedTitle';
 import { PiForkKnifeFill } from "react-icons/pi";
 import { useForm } from 'react-hook-form';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
+
+
+
+const imageHostingKey = import.meta.env.VITE_ImageHostingKey;
+const imageHostingAPI=  `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 const AddItem = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm();
+    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
+    const onSubmit = async (data) => {
+        console.log(data)
+        // image upload to imgbb and then get an url
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(imageHostingAPI, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
+
+        console.log(res.data);
+        if(res.data.success){
+            const menuItem = {
+                name: data.name,
+                category: data.category,
+                price: parseFloat(data.price),
+                recipe: data.recipe,
+                image: res.data.data.display_url
+            }
+            console.log(menuItem);
+            const menuRes = await axiosSecure.post('/menu', menuItem);
+            console.log(menuRes.data)
+            if(menuRes.data.insertedId){
+                reset()
+                toast.success("New menu added")
+            }
+        }
+    }
+
     return (
         <div>
             <SharedTitele heading={'ADD AN ITEM'} subHeading={"What's new"}></SharedTitele>
@@ -42,7 +81,7 @@ const AddItem = () => {
                         </div>
                         <div className='w-full space-y-2'>
                             <h2>Price*</h2>
-                            <input className='w-full p-3' placeholder='price'
+                            <input className='w-full p-3' type='number' placeholder='price'
                                 {...register("price", { required: true })} />
                                   {errors.price?.type === "required" && (
                             <p role="alert" className='text-red-700'> Price is required*</p>
