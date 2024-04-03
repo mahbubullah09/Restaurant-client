@@ -17,6 +17,7 @@ import MangeUsers from "./Component/AdminDash/Users/MangeUsers";
 import AdminRoute from "./PrivateRoute/AdminRoute";
 import AddItem from "./Component/AdminDash/ManageItems/AddItem";
 import ManageItems from "./Component/AdminDash/ManageItems/MnageItems";
+import UpdateItem from "./Component/AdminDash/ManageItems/UpdateItem";
 
 
 
@@ -76,6 +77,11 @@ const router = createBrowserRouter([
       {
         path: 'manageitems',
         element: <AdminRoute><ManageItems/></AdminRoute>
+      },
+      {
+        path: 'updateItem/:id',
+        element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
       },
     ]
   }
