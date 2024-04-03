@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 
 const imageHostingKey = import.meta.env.VITE_ImageHostingKey;
-const imageHostingAPI=  `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+const imageHostingAPI = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 const AddItem = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
     const axiosPublic = useAxiosPublic();
@@ -27,7 +27,7 @@ const AddItem = () => {
         });
 
         console.log(res.data);
-        if(res.data.success){
+        if (res.data.success) {
             const menuItem = {
                 name: data.name,
                 category: data.category,
@@ -38,9 +38,15 @@ const AddItem = () => {
             console.log(menuItem);
             const menuRes = await axiosSecure.post('/menu', menuItem);
             console.log(menuRes.data)
-            if(menuRes.data.insertedId){
+            if (menuRes.data.insertedId) {
                 reset()
-                toast.success("New menu added")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${data.name} is added to the menu.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             }
         }
     }
@@ -75,17 +81,17 @@ const AddItem = () => {
                                 <option value="drinks">popular</option>
                             </select>
                             {errors.category?.type === "required" && (
-                            <p role="alert" className='text-red-700'> Category is required*</p>
-                        )}
+                                <p role="alert" className='text-red-700'> Category is required*</p>
+                            )}
 
                         </div>
                         <div className='w-full space-y-2'>
                             <h2>Price*</h2>
                             <input className='w-full p-3' type='number' placeholder='price'
                                 {...register("price", { required: true })} />
-                                  {errors.price?.type === "required" && (
-                            <p role="alert" className='text-red-700'> Price is required*</p>
-                        )}
+                            {errors.price?.type === "required" && (
+                                <p role="alert" className='text-red-700'> Price is required*</p>
+                            )}
                         </div>
 
 
@@ -95,13 +101,13 @@ const AddItem = () => {
                         <h2>Recipe Details*</h2>
                         <textarea className='w-full h-36 p-3' placeholder='Recipe details'
                             {...register("recipe", { required: true })} />
-                              {errors.recipe?.type === "required" && (
+                        {errors.recipe?.type === "required" && (
                             <p role="alert" className='text-red-700'> Recipe is required*</p>
                         )}
                     </div>
 
                     <div className="form-control w-full my-6 space-y-2">
-                    <h2>Image*</h2>
+                        <h2>Image*</h2>
                         <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                         {errors.image?.type === "required" && (
                             <p role="alert" className='text-red-700'> Image is required*</p>

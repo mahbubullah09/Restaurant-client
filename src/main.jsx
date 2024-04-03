@@ -16,6 +16,7 @@ import UserDash from "./Component/Layout/userDash";
 import MangeUsers from "./Component/AdminDash/Users/MangeUsers";
 import AdminRoute from "./PrivateRoute/AdminRoute";
 import AddItem from "./Component/AdminDash/ManageItems/AddItem";
+import ManageItems from "./Component/AdminDash/ManageItems/MnageItems";
 
 
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: 'additem',
         element: <AdminRoute><AddItem/></AdminRoute>
+      },
+      {
+        path: 'manageitems',
+        element: <AdminRoute><ManageItems/></AdminRoute>
       },
     ]
   }
