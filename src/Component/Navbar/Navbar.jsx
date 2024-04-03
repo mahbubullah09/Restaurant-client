@@ -4,9 +4,10 @@ import { AuthContex } from '../../provider/AuthProvider';
 import { FaCartPlus } from "react-icons/fa";
 import useCart from '../../hooks/useCart';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { useQueries } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import useAdmin from '../../hooks/useAdmin';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Navbar = () => {
 
@@ -16,7 +17,18 @@ const Navbar = () => {
 
     
     const { user, singout } = useContext(AuthContex)
+
     const [isAdmin] = useAdmin()
+    // const axiosPublic = useAxiosPublic()
+    // const { data: isAdmin } = useQuery({
+    //     queryKey: [user?.email, 'isAdmin'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get(`/users/admin/${user.email}`);
+    //         // console.log(res.data);
+    //         return res.data?.admin;
+    //     }
+    // })
+  
 
     const handleLogout = () => {
         singout()
@@ -27,7 +39,8 @@ const Navbar = () => {
 
     const navOption = < >
 
-        <div className='flex flex-col lg:flex-row gap-2 font-bold '>
+        
+            <div className='flex flex-col lg:flex-row gap-2 font-bold '>
             <ul ><NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
@@ -84,6 +97,7 @@ const Navbar = () => {
             </>
 
         </div>
+       
 
     </>
     return (

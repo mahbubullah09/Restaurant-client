@@ -25,7 +25,7 @@ const Reviews = () => {
             .then(data => setReviews(data))
     }, [])
 
-    console.log(reviews);
+    // console.log(reviews);
     return (
         <div className="max-w-4xl mx-auto">
             <SharedTitele subHeading={'What Our Clients Say'}
