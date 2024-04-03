@@ -74,7 +74,7 @@ const MangeUsers = () => {
 
     }
 
-    console.log(users);
+    // console.log(users);
     return (
         <div>
             <h2>Total Users : {users?.length}</h2>

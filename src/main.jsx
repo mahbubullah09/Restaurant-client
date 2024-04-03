@@ -14,6 +14,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Cart from "./Component/Cart/Cart";
 import UserDash from "./Component/Layout/userDash";
 import MangeUsers from "./Component/AdminDash/Users/MangeUsers";
+import AdminRoute from "./PrivateRoute/AdminRoute";
+import AddItem from "./Component/AdminDash/ManageItems/AddItem";
 
 
 
@@ -64,8 +66,12 @@ const router = createBrowserRouter([
       //adminRoute
       {
         path: 'manegeusers',
-        element: <MangeUsers/>
-      }
+        element: <AdminRoute><MangeUsers/></AdminRoute>
+      },
+      {
+        path: 'additem',
+        element: <AdminRoute><AddItem/></AdminRoute>
+      },
     ]
   }
 ]);
