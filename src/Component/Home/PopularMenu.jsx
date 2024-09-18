@@ -23,7 +23,7 @@ const PopularMenu = () => {
                     subHeading={"Popular Menu"} />
             </section>
 
-            <section className='grid grid-cols-2'>
+            <section className='grid grid-cols-2 justify-center max-w-7xl mx-auto px-3'>
                 {menu &&
                     popular.map((data, idx) => <MenuItem key={idx} item={data} />)
                 }

@@ -6,7 +6,7 @@ import Reviews from './TESTIMONIALS/Reviews';
 
 const Home = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <Banner></Banner>
             <OnlineOrder />
             <PopularMenu/>

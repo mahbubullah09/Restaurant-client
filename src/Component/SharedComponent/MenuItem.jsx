@@ -10,7 +10,7 @@ const MenuItem = ({item}) => {
 
                 <div>
                    <div className='flex justify-between text-xl uppercase font-normal'>
-                   <h2>{name}------------------</h2>
+                   <h2>{name}</h2>
                    <h5 className='text-[#BB8506]'>${price}</h5>
                    </div>
                    <h6 className='w-[443px] text-[#737373] font-normal'> {recipe}</h6>

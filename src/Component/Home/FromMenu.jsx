@@ -9,7 +9,7 @@ const FromMenu = () => {
             <SharedTitele subHeading={'Check it out'}
                 heading={"FROM OUR MENU"} />
 
-            <div className="flex justify-center items-center ">
+            <div className="flex justify-center items-center max-w-7xl mx-auto ">
                 <img className="w-[648px] p-8 " src={img} alt="" />
 
                 <div className="flex-1">
