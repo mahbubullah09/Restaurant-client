@@ -22,10 +22,7 @@ const PaymentHistory = () => {
         enabled: !!userEmail, // Only run the query if userEmail is available
     });
 
-    if (isLoading) {
-        return <div>Loading...</div>; // Show loading state
-    }
-
+   
     return (
         <div className="my-4 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-center mb-4">Payment History</h2>

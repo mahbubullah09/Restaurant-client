@@ -33,7 +33,7 @@ const Menu = () => {
                         subHeading={"TODAY'S OFFER"} />
                 </section>
 
-                <section className='grid grid-cols-2'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
                     {menu &&
                         offered.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -41,7 +41,7 @@ const Menu = () => {
                 <div className='flex justify-center '>
 
                     <Link to={'/ourshop'}>
-                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+                        <button className='uppercase py-2 px-4 bg-black text-[#BB8506] text-lg font-medium rounded-lg border-[#BB8506] border-b-4 hover:bg-[#E8E8E8] text-center  '>ORDER YOUR FAVOURITE FOOD</button>
 
                     </Link>
                 </div>
@@ -53,7 +53,7 @@ const Menu = () => {
                     title={'DESSERTS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-2 my-20 max-w-7xl mx-auto px-3'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
                     {menu &&
                         dessert.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -61,7 +61,7 @@ const Menu = () => {
                 <div className='flex justify-center '>
 
                     <Link to={'/ourshop'}>
-                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+                        <button className='uppercase py-2 px-4 bg-black text-[#BB8506] text-lg font-medium rounded-lg border-[#BB8506] border-b-4 hover:bg-[#E8E8E8] text-center  '>ORDER YOUR FAVOURITE FOOD</button>
 
                     </Link>
                 </div>
@@ -72,7 +72,7 @@ const Menu = () => {
                     title={'PIZZA'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-2 my-20 max-w-7xl mx-auto px-3'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
                     {menu &&
                         pizza.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -80,7 +80,7 @@ const Menu = () => {
                 <div className='flex justify-center '>
 
                     <Link to={'/ourshop'}>
-                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+                        <button className='uppercase py-2 px-4 bg-black text-[#BB8506] text-lg font-medium rounded-lg border-[#BB8506] border-b-4 hover:bg-[#E8E8E8] text-center  '>ORDER YOUR FAVOURITE FOOD</button>
 
                     </Link>
                 </div>
@@ -92,7 +92,7 @@ const Menu = () => {
                     title={'SALADS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-2 my-20 max-w-7xl mx-auto px-3'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
                     {menu &&
                         salad.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -100,7 +100,7 @@ const Menu = () => {
                 <div className='flex justify-center '>
 
                     <Link to={'/ourshop'}>
-                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+                        <button className='uppercase py-2 px-4 bg-black text-[#BB8506] text-lg font-medium rounded-lg border-[#BB8506] border-b-4 hover:bg-[#E8E8E8] text-center  '>ORDER YOUR FAVOURITE FOOD</button>
 
                     </Link>
                 </div>
@@ -112,7 +112,7 @@ const Menu = () => {
                     title={'SOUPS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-2 my-20  max-w-7xl mx-auto px-3'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
                     {menu &&
                         soup.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -120,7 +120,7 @@ const Menu = () => {
                 <div className='flex justify-center '>
 
                     <Link to={'/ourshop'}>
-                        <button className='uppercase border-black border-b-2 rounded-lg text-2xl px-4 py-2  font-semibold  '>ORDER YOUR FAVOURITE FOOD</button>
+                        <button className='uppercase py-2 px-4 bg-black text-[#BB8506] text-lg font-medium rounded-lg border-[#BB8506] border-b-4 hover:bg-[#E8E8E8] text-center '>ORDER YOUR FAVOURITE FOOD</button>
 
                     </Link>
                 </div>

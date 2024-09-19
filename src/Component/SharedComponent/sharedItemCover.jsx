@@ -12,7 +12,7 @@ const SharedItemCover = ({bimg, title, subTitle}) => {
         <div>
             <div className="hero min-h-[50vh]">
                 <div className=""></div>
-                <div className="hero-content text-center text-neutral-content bg-[#15151599] px-72 py-16">
+                <div className="hero-content text-center text-neutral-content bg-[#15151599] px-4 py-8 md:px-12 md:py-12 lg:px-24 lg:py-16 xl:px-72">
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">{title}</h1>
                         <p className="mb-5">{subTitle}</p>
