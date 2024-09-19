@@ -18,22 +18,22 @@ const Registration = () => {
     const handleRegistration = e =>{
         e.preventDefault();
 
-        const name = e.target.name.value;
+        const displayName = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const photo = e.target.photo.value;
+        
 
-        console.log(name, email,password);
+        console.log(displayName, email,password);
 
         createUser(email, password)
         .then(result => {
           result.user
         console.log(result.user)
-        updateUserProfile(name, photo)
+        updateUserProfile(displayName)
         .then(()=>{
 
           const userInfo = {
-            name: name,
+            name: displayName,
             email: email
           }
           axiosPublic.post('/users', userInfo)
@@ -72,10 +72,7 @@ const Registration = () => {
                     <label className='text-xl font-semibold my-2'>Name</label>
                     <input placeholder='Enter your Name' type="text" name="name" className='p-2  ' id="" />
                   </div>
-                  <div className='flex flex-col my-8 w-3/4 mx-auto'>
-                    <label className='text-xl font-semibold my-2'>Photo URL</label>
-                    <input placeholder='Enter your Name' type="text" name="photo" className='p-2  ' id="" />
-                  </div>
+                  
                   <div className='flex flex-col my-8 w-3/4 mx-auto'>
                     <label className='text-xl font-semibold my-2'>Email</label>
                     <input placeholder='Enter your Email' type="text" name="email" className='p-2  ' id="" />

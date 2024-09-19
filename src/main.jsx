@@ -22,6 +22,8 @@ import Payment from "./Component/userDash/Payment";
 import AdminHome from "./Component/AdminDash/AdminHome";
 import UserHome from "./Component/userDash/UserHome";
 import PaymentHistory from "./Component/userDash/PaymentsHistory";
+import AddReview from "./Component/userDash/AddReview";
+import Thankyou from "./Component/userDash/Thankyou";
 
 
 
@@ -79,6 +81,18 @@ const router = createBrowserRouter([
       {
         path: 'paymenthistory',
         element: <PaymentHistory/>
+      },
+      {
+        path: 'paymenthistory',
+        element: <PaymentHistory/>
+      },
+      {
+        path: 'review',
+        element: <AddReview/>
+      },
+      {
+        path: 'greettings',
+        element: <Thankyou/>
       },
 
       //adminRoute
