@@ -19,7 +19,23 @@ const PaymentForm = () => {
     const navigate = useNavigate()
 
     const axiosSecure = useAxiosSecure();
+    
+    // date function 
+    
+    const isoDate = new Date().toISOString();
 
+    // Convert to a readable date and time format
+    const formattedDate = new Date(isoDate).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,  // for 12-hour format with AM/PM
+    });
+    
+    // console.log(formattedDate);
 
     const { user } = useContext(AuthContex)
     //   const axiosSecure = useAxiosSecure();
@@ -40,7 +56,7 @@ const PaymentForm = () => {
             email: user?.email,
             Number: bkashNumber,
             price: totalPrice,
-            date: new Date().toISOString(), // Convert date to UTC format
+            date: formattedDate ,
             transactionId: result,
             productsInfo: cart
         };
@@ -95,7 +111,7 @@ const PaymentForm = () => {
         <div className="card w-96 mx-auto bg-base-200 shadow-xl mt-16">
             <div className="card-body p-0 text-center">
                 <h2 className="text-5xl font-bold font-PtSerif my-4 text-center">
-                    AidUnity{" "}
+                    Bistro Boss{" "}
                 </h2>
                 <div className="flex gap-2">
                     <p className="flex flex-col items-center">
@@ -146,9 +162,14 @@ const PaymentForm = () => {
                     </div>
                     <div className="form-control mt-6">
                         {(
+                            cart.length > 0?
                             <button className="btn btn-primary w-full">
                                 Pay ${totalPrice}/-
                             </button>
+                            :
+                            <p className="btn bg-slate-300 w-full">
+                            Please add some products !!
+                        </p>
                         )
                         }
                     </div>

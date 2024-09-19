@@ -21,6 +21,7 @@ import UpdateItem from "./Component/AdminDash/ManageItems/UpdateItem";
 import Payment from "./Component/userDash/Payment";
 import AdminHome from "./Component/AdminDash/AdminHome";
 import UserHome from "./Component/userDash/UserHome";
+import PaymentHistory from "./Component/userDash/PaymentsHistory";
 
 
 
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: 'payment',
         element: <Payment/>
+      },
+      {
+        path: 'paymenthistory',
+        element: <PaymentHistory/>
       },
 
       //adminRoute

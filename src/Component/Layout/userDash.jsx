@@ -88,25 +88,6 @@ const UserDash = () => {
                                         }
                                     > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaHome /> User Home</button></NavLink></li>
                                 </ul>
-
-
-                                <ul className="">
-                                    <li><NavLink to={'/dashboard/reserve'}
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-white" : ""
-                                        }
-                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaDatabase /> reservation</button></NavLink></li>
-                                </ul>
-
-                                <ul className="">
-                                    <li><NavLink to={'/dashboard/payment'}
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-white" : ""
-                                        }
-                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaPaypal /> payment history</button></NavLink></li>
-                                </ul>
-
-
                                 <ul className="">
                                     <li><NavLink to={'/dashboard/cart'}
                                         className={({ isActive, isPending }) =>
@@ -114,6 +95,27 @@ const UserDash = () => {
                                         }
                                     > <button className="flex uppercase items-center text-lg gap-2 font-medium  "> <FaShoppingCart /> My Cart</button></NavLink></li>
                                 </ul>
+                                <ul className="">
+                                    <li><NavLink to={'/dashboard/payment'}
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "text-white" : ""
+                                        }
+                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaPaypal /> payment </button></NavLink></li>
+                                </ul>
+
+
+                                <ul className="">
+                                    <li><NavLink to={'/dashboard/paymenthistory'}
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "text-white" : ""
+                                        }
+                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaDatabase /> payment history</button></NavLink></li>
+                                </ul>
+
+                             
+
+
+                            
 
 
                                 <ul className="">
@@ -124,13 +126,7 @@ const UserDash = () => {
                                     > <button className="flex uppercase items-center text-lg gap-2 font-medium  "> <GiStarsStack /> add review</button></NavLink></li>
                                 </ul>
 
-                                <ul className="">
-                                    <li><NavLink to={'/dashboard/booking'}
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-white" : ""
-                                        }
-                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium  "> <GiCalendar />my booking</button></NavLink></li>
-                                </ul>
+                               
 
 
                             </div>
