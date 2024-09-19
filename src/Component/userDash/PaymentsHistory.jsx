@@ -5,14 +5,12 @@ import { useQuery } from '@tanstack/react-query';
 import ProductName from './productName';
 
 const PaymentHistory = () => {
-
-
-    const {user} = useContext(AuthContex)
+    const { user } = useContext(AuthContex);
     const axiosSecure = useAxiosSecure();
     const userEmail = user?.email; // Get user email
 
     // Fetch payment history using useQuery
-    const { data: payments , refetch, isLoading, error } = useQuery({
+    const { data: payments, refetch, isLoading, error } = useQuery({
         queryKey: ['payments', userEmail], // Cache payments based on userEmail
         queryFn: async () => {
             if (userEmail) {
@@ -28,45 +26,34 @@ const PaymentHistory = () => {
         return <div>Loading...</div>; // Show loading state
     }
 
- 
-
-
-//    console.log(payments);
-
-   
-
     return (
-        <div>
-        <div className="overflow-x-auto max-w-[980px] mx-auto my-4">
-            <table className="table text-center ">
-                {/* head */}
-                <thead>
-                    <tr className='bg-[#D1A054] text-white border  '>
-                        <th>SL</th>
-                        <th>Items</th>
-                        <th>Total Price</th>
-                        <th>Date</th>
-                     
-                    </tr>
-                </thead>
-                <tbody className='text-xl'>
-                    {
-                        payments.map((data, idx) =>
+        <div className="my-4 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-4">Payment History</h2>
+            <div className="overflow-x-auto">
+                <table className="min-w-full table-auto text-center">
+                    {/* Table head */}
+                    <thead>
+                        <tr className='bg-[#D1A054] text-[10px] md:text-base lg:text-lg text-white border'>
+                            <th>SL</th>
+                            <th>Items</th>
+                            <th>Total Price</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    {/* Table body */}
+                    <tbody className='text-[10px] md:text-xl'>
+                        {payments.map((data, idx) => (
                             <tr className='text-black' key={data?._id}>
-                                <td className='font-bold text-2xl'>{idx + 1}</td>
-                                <td><ProductName key={data?._id} Items={data.productsInfo}/></td>
-                                <td className='font-bold text-4xl'>${data?.price}</td>
-                                <td className='font-medium text-xl'>{data?.date}</td>
-                               
+                                <td className='font-bold text-[10px] md:text-xl lg:text-2xl'>{idx + 1}</td>
+                                <td><ProductName key={data?._id} Items={data.productsInfo} /></td>
+                                <td className='font-bold text-[10px] md:text-xl'>${data?.price}</td>
+                                <td className='font-medium text-[10px] md:text-xl'>{data?.date}</td>
                             </tr>
-                        )
-                    }
-
-
-                </tbody>
-            </table>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     );
 };
 
