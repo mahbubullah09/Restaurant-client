@@ -33,7 +33,7 @@ const Menu = () => {
                         subHeading={"TODAY'S OFFER"} />
                 </section>
 
-                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 gap-4'>
                     {menu &&
                         offered.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -53,7 +53,7 @@ const Menu = () => {
                     title={'DESSERTS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 gap-4'>
                     {menu &&
                         dessert.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -72,7 +72,7 @@ const Menu = () => {
                     title={'PIZZA'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 gap-4'>
                     {menu &&
                         pizza.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -92,7 +92,7 @@ const Menu = () => {
                     title={'SALADS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 gap-4'>
                     {menu &&
                         salad.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }
@@ -112,7 +112,7 @@ const Menu = () => {
                     title={'SOUPS'}
                     subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} />
 
-                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 place-items-center'>
+                <section className='grid grid-cols-1  lg:grid-cols-2 max-w-7xl mx-auto px-2 gap-4'>
                     {menu &&
                         soup.map((data, idx) => <MenuItem key={idx} item={data} />)
                     }

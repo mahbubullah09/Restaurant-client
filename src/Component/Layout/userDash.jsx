@@ -322,13 +322,7 @@ const UserDash = () => {
                                     > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <FaShop />  Shop</button></NavLink></li>
                                 </ul>
 
-                                <ul className="">
-                                    <li><NavLink to={'/contact'}
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-white" : ""
-                                        }
-                                    > <button className="flex uppercase items-center text-lg gap-2 font-medium "> <IoMdMail />  Contact</button></NavLink></li>
-                                </ul>
+                              
 
 
                             </div>
