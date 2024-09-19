@@ -22,7 +22,7 @@ const PaymentHistory = () => {
         enabled: !!userEmail, // Only run the query if userEmail is available
     });
 
-   
+
     return (
         <div className="my-4 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-center mb-4">Payment History</h2>
@@ -38,16 +38,22 @@ const PaymentHistory = () => {
                         </tr>
                     </thead>
                     {/* Table body */}
-                    <tbody className='text-[10px] md:text-xl'>
-                        {payments.map((data, idx) => (
-                            <tr className='text-black' key={data?._id}>
-                                <td className='font-bold text-[10px] md:text-xl lg:text-2xl'>{idx + 1}</td>
-                                <td><ProductName key={data?._id} Items={data.productsInfo} /></td>
-                                <td className='font-bold text-[10px] md:text-xl'>${data?.price}</td>
-                                <td className='font-medium text-[10px] md:text-xl'>{data?.date}</td>
+                    <tbody className="text-[10px] md:text-xl my-4">
+                        {payments?.map((data, idx) => (
+                            <tr
+                                className={`text-black  ${idx % 2 === 0 ? 'bg-slate-200' : ''}`}
+                                key={data?._id}
+                            >
+                                <td className="font-bold text-[10px] md:text-xl lg:text-2xl">{idx + 1}</td>
+                                <td>
+                                    <ProductName key={data?._id} Items={data.productsInfo} />
+                                </td>
+                                <td className="font-bold text-[10px] md:text-xl">${data?.price}</td>
+                                <td className="font-medium text-[10px] md:text-xl">{data?.date}</td>
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
             </div>
         </div>

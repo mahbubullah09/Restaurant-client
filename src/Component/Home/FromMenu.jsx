@@ -17,17 +17,17 @@ const FromMenu = () => {
             />
 
             {/* Responsive flex layout: stack vertically on small screens and horizontally on larger screens */}
-            <div className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto ">
                 {/* Image */}
                 <img
-                    className="w-full md:w-[400px] lg:w-[648px] p-4 md:p-8"
+                    className="w-full md:w-[400px] lg:w-[550px] p-4 md:p-8"
                     src={img}
                     alt="From Our Menu"
                 />
 
                 {/* Content */}
                 <div className="flex-1 mt-4 md:mt-0 md:ml-8">
-                    <p className="text-base md:text-lg lg:text-2xl mb-4">
+                    <p className="text-base  lg:text-xl mb-4">
                         {today} <br />
                         WHERE CAN I GET SOME? <br />
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.

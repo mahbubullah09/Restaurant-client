@@ -12,6 +12,8 @@ const imageHostingAPI = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 const UpdateItem = () => {
     const {name, category, recipe, price, _id} = useLoaderData();
 
+    console.log(name);
+
     const { register, handleSubmit } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();

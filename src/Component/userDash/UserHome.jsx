@@ -27,7 +27,7 @@ const UserHome = () => {
 
     const totalPrice = payments?.reduce((total, item) => total + item.price, 0)
 
-    console.log(payments);
+    // console.log(payments);
 
 
     const [cart] = useCart()
